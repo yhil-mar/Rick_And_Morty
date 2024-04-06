@@ -5,24 +5,18 @@ import { SignJWT } from "jose";
 
 const { JWT_PRIVATE_KEY } = process.env;
 
-const postUser = async (email, password) => {
+const postUser = async (email, password, username, firstName, lastName) => {
 
     // Creación o búsqueda 
-    const newUser = await User.findOrCreate({
-
-        where: { email: email },
-        defaults: { password: password }
-
+    const newUser = await User.create({
+        email,
+        password,
+        username,
+        firstName,
+        lastName,
     });
 
-    // Verificación de contraseña si no hay creación de nuevo usuario
-    if (!newUser[1]) {
-
-        if (password !== newUser[0].password) return { message: 'Usuario o contraseña incorrectos' };
-
-    };
-
-    const idUser = newUser[0].id;
+    const idUser = newUser.id;
 
     // Acá se realiza una instancia de la clase SignJWT que nos servirá para poder realizar el Token de auntenticación
     // Como parámetro de esta clase es necesario poner el ID del usuario creado o encontrado dentro de un objeto para lo
@@ -41,7 +35,7 @@ const postUser = async (email, password) => {
         // Firma necesaria para la cual se debe usar encoder
         .sign(encoder.encode(JWT_PRIVATE_KEY));
 
-    const newUserAuth = { ...newUser, jwt: jwt };
+    const newUserAuth = { newUser, jwt: jwt };
 
     return newUserAuth;
 

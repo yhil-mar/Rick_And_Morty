@@ -4,7 +4,7 @@ import { Router } from "express";
 // Importación de Middlewares
 import authUser from "../middlewares/authUser.mjs";
 import validateParams from "../middlewares/validateParams.mjs";
-import validateBodyFav from "../middlewares/validateBodyFav.mjs";
+import validateBody from "../middlewares/validateBody.mjs";
 
 // Importación de los Handlers
 import getHandler from "../handlers/favoritesHandlers/getHandler.mjs";
@@ -15,7 +15,7 @@ const router = Router();
 
 router.get('/', authUser, getHandler)
 
-router.post('/', validateBodyFav, authUser, postHandler);
+router.post('/', validateBody, authUser, postHandler);
 
 router.delete('/:id', validateParams, authUser, deleteHandler);
 

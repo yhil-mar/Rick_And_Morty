@@ -11,7 +11,7 @@ const authUser = async (req, res, next) => {
 
     const encoder = new TextEncoder();
 
-    if (!authorization) return res.status(401).send({ message: 'No cuenta con autorización' });
+    if (!authorization) return res.status(401).send('Does not have authorization' );
 
     try {
 
@@ -41,12 +41,12 @@ const authUser = async (req, res, next) => {
 
             next();
 
-        } else return res.status(401).send({ message: 'Token de autorización no válido' });
+        } else return res.status(401).send('Invalid authorization token' );
 
 
     } catch (error) {
 
-        return res.status(401).send({ message: 'Token de autorización no válido' });
+        return res.status(401).send('Invalid authorization token');
 
     };
 

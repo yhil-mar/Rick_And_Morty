@@ -1,0 +1,41 @@
+.loginContainer {
+    padding: 5rem;
+    color: var(--text-color);
+    /* background-color: var(--first-alpha-color); */
+    border-radius: 0.5rem;
+}
+
+.formSection {
+    display: grid;
+    gap: 1.2rem;
+}
+
+.formSection div:last-child {
+    gap: 6rem;
+}
+
+.registerSection {
+    position: absolute;
+    right: 0;
+    left: 0;
+    color: var(--white-color);
+}
+
+.buttonContainer {
+    height: 4rem;
+}
+
+.registerText {
+    margin: 6rem auto 0;
+}
+
+.registerLink {
+    font-weight: bold;
+    color: var(--white-color);
+    margin: 0 auto;
+    transition: all 0.2s ease;
+}
+
+.registerLink:hover {
+    color: var(--blue-login-color);
+}

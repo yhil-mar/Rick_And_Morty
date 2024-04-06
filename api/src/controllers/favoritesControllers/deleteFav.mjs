@@ -32,8 +32,6 @@ const deleteFav = async (id, idUser) => {
 
         });
 
-    console.log(bandera);
-
     if (bandera) return { status: 201, message: 'Registro eliminado con éxito' };
 
     else return { status: 400, message: 'El usuario no cuenta con este favorito' };

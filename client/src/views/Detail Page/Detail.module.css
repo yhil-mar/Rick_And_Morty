@@ -1,0 +1,11 @@
+.detailPage {
+    background-color: var(--black-alpha-half-color);
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+}
+
+.detailContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

@@ -1,6 +1,7 @@
 import { Sequelize } from "sequelize";
 
 // Importación de los modelos
+import CharacterModel from "./models/Character.mjs";
 import FavoriteModel from "./models/Favorite.mjs";
 import UserModel from "./models/User.mjs";
 
@@ -16,16 +17,21 @@ const sequelize = new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}
 });
 
 // Creación de los modelos en la DB
+
+CharacterModel(sequelize);
 FavoriteModel(sequelize);
 UserModel(sequelize);
 
 // Relación de modelos
-const { User, Favorite } = sequelize.models;
+const { User, Character, Favorite } = sequelize.models;
+User.belongsToMany(Character, { through: 'UserCharacter' });
 User.belongsToMany(Favorite, { through: 'UserFavorite' });
+Character.belongsToMany(User, { through: 'UserCharacter' })
 Favorite.belongsToMany(User, { through: 'UserFavorite' });
 
 export {
     User,
+    Character,
     Favorite,
     sequelize as conn
 };

@@ -1,0 +1,132 @@
+.view {
+    width: 100%;
+    min-height: 100vh;
+}
+
+.wallpaperImg {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+    z-index: -1000;
+}
+
+.initialMessage {
+    margin: 0 auto;
+}
+
+.loginButton {
+    color: var(--white-color);
+    background-color: var(--third-color);
+    border: 0;
+    border-radius: 2rem;
+    padding: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.loginButton:disabled {
+    opacity: 30%;
+}
+
+.loginButton:enabled:hover {
+    /* color: var(--black-color); */
+    background-color: var(--blue-login-alpha-color);
+    /* box-shadow: 0.05rem 0.05rem 0.3rem rgba(0, 0, 0, 0.4); */
+    cursor: pointer;
+}
+
+.headerButton {
+    color: var(--black-color);
+    background-color: var(--white-color);
+
+    border: 0;
+    border-radius: 2rem;
+    padding: 0.5rem 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.headerButton:hover {
+    color: var(--white-color);
+    background-color: var(--first-color);
+    cursor: pointer;
+}
+
+.input_1 {
+    background-color: var(--white-color);
+    border: 0;
+    border-radius: 2rem;
+    padding: 0.5rem 0.7rem;
+    outline: 0;
+    transition: all 0.2s ease;
+    box-shadow: inset 0 0.05rem 0.3rem rgba(0, 0, 0, 0.25);
+
+}
+
+.input_1:focus {
+    box-shadow: inset 0 0 0 0.07rem var(--third-color);
+}
+
+.formPart {
+    display: flex;
+    flex-direction: column;
+}
+
+.warningSpan {
+    height: 1rem;
+    color: var(--warning-altern-color);
+    text-align: end;
+}
+
+.spinnerCharge {
+    fill: none;
+    stroke: var(--blue-login-alpha-color);
+    stroke-width: 10;
+    margin: 0 auto;
+    display: block;
+    shape-rendering: auto;
+}
+
+.messageContainer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    font-weight: bold;
+
+    margin: 2rem auto;
+    padding: 1rem;
+    width: fit-content;
+    border-radius: 4rem;
+    background-color: var(--white-color);
+
+    animation-name: entryMessage;
+    animation-duration: 5s;
+    animation-timing-function: ease;
+}
+
+@keyframes entryMessage {
+    0% {
+        transform: translateY(-6rem);
+    }
+
+    10% {
+        transform: translateY(0.5rem);
+    }
+
+    15% {
+        transform: translateY(0);
+    }
+
+    85% {
+        transform: translateY(0);
+    }
+
+    90% {
+        transform: translateY(0.5rem);
+    }
+
+    100% {
+        transform: translateY(-6rem);
+    }
+}

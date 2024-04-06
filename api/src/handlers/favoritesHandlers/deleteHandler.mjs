@@ -8,7 +8,7 @@ const deleteHandler = async (req, res) => {
 
         const result = await deleteFav(id, idUser);
 
-        res.status(result.status).send({ message: result.message });
+        res.status(result.status).send(result.message );
 
     } catch (error) {
 

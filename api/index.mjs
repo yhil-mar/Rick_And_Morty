@@ -11,7 +11,7 @@ dotenv.config();
 const { PORT } = process.env;
 
 // Acá se realiza la conexión a la base de datos en forma de una promesa, la cual hasta que no suceda no hará que pueda continuar la ejecución de la aplicación
-conn.sync({ force: true }).then(() => {
+conn.sync({ alter: true }).then(() => {
 
     // Acá se realiza el "listen" para asignarle un puerto al servidor
     app.listen(PORT, () => {

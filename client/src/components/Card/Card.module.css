@@ -1,0 +1,59 @@
+.cardContainer {
+    display: grid;
+    gap: 1rem;
+
+    background-color: var(--fourth-alpha-color);
+
+    padding: 1.5rem;
+    /* border: 0.3rem var(--fourth-color) solid; */
+    border-radius: 0.5rem;
+}
+
+.optionsContainer {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.dataContainer {
+    display: grid;
+    gap: 0.5rem;
+    color: var(--gray-color);
+}
+
+.detailLink {
+    color: var(--white-color);
+}
+
+/* .imageContainer {
+    width: 80%;
+    height: auto;
+} */
+
+.cardButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    /* padding: 0; */
+    width: 1.5rem;
+    height: 1.5rem;
+
+    fill: var(--white-color);
+    background-color: transparent;
+}
+
+.cardButton:hover {
+    cursor: pointer;
+}
+
+.charFav {
+    fill: var(--red-login-color);
+}
+
+.charImage {
+    width: 80%;
+    height: auto;
+    margin: 0 auto;
+    border-radius: 1rem;
+}

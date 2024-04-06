@@ -1,0 +1,28 @@
+.registerContainer {
+    padding: 2rem;
+    color: var(--text-color);
+    background-color: var(--white-alpha-half-color);
+    border-radius: 0.5rem;
+}
+
+.formSection {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(45%, 1fr));
+    gap: 1rem;
+}
+
+.formSection h1:first-child{
+    grid-column: span 2;
+}
+
+.buttonContainer {
+    height: 4rem;
+    grid-column: span 2;
+}
+
+.registerButton {
+    margin: 0 auto;
+    width: fit-content;
+    padding-left: 5rem;
+    padding-right: 5rem;
+}
