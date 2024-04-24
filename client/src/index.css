@@ -1,155 +1,90 @@
-:root {
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-    /********** Paleta de Colores **********/
+@layer components {
+    .view {
+        @apply w-full min-h-screen
+    }
 
-    --first-color: #64020f;
-    --first-alpha-color: #64020fBF;
-    --second-color: #202121;
-    --second-alpha-color: #202121BF;
-    --third-color: #081233;
-    --third-alpha-color: #081233BF;
-    --fourth-color: #12454f;
-    --fourth-alpha-color: #12454fBF;
-    
-    --text-color: #000000;
-    --light-text-color: #f8efdf;
-    --dark-text-color: #22181C;
-    --bg-first-color: #FFFAF4;
-    --bg-second-color: #F0F8FF;
-    --bg-second-alpha-color: #F0F8FFBF;
-    --bg-third-color: #d0e5fa;
+    .bg-login-img {
+        @apply bg-login bg-cover bg-center
+    }
 
+    .bg-home-img {
+        @apply bg-home bg-cover bg-center
+    }
 
-    /********** Colores escala de grises **********/
+    .input-1 {
+        @apply text-input border-blue-login-color border-2 rounded-full px-3 py-2 outline-none focus:border-second-color transition-all;
+    }
 
-    --white-color: #FFFFFF;
-    --white-alpha-color: #FFFFFFBF;
-    --white-alpha-half-color: #FFFFFF80;
-    --gray-light-color: #F3F3F3;
-    --gray-light-alpha-color: #F3F3F3BF;
-    --gray-color: #CCCCCC;
-    --gray-alpha-color: #CCCCCCBF;
-    --gray-dark-color: #666666;
-    --gray-dark-alpha-color: #666666BF;
-    --black-color: #000000;
-    --black-alpha-color: #000000BF;
-    --black-alpha-half-color: #00000080;
+    .login-button {
+        @apply text-white text-button bg-blue-login-color border-none rounded-full p-3 transition-all disabled:opacity-30 enabled:hover:cursor-pointer enabled:hover:bg-second-color/80;
+    }
+    .mobile-button {
+        @apply flex justify-center items-center fill-white w-8 h-8 hover:fill-third-color transition-all sm:hidden
+    }
+    .error-modal {
+        @apply absolute inset-x-0 top-0 text-span font-bold bg-white mx-auto my-8 p-4 w-fit rounded-full animate-entryMessage;
+    }
 
+    .form-part {
+        @apply flex flex-col;
+    }
 
-    /********** Colores extra **********/
-
-    --warning-color: #FF6161;
-    --warning-altern-color: #FF002E;
-    --check-color: #00AD21;
-
-    --red-login-color:#C90A1C;
-    --red-login-alpha-color:#C90A1CBF;
-    --blue-login-color: #01B6EC;
-    --blue-login-alpha-color: #01B6ECBF;
-
-
-    /********** Medidas caja **********/
-
-    --max-width: 1200px;
-    --media-query-tablet: 1024px;
-    --media-query-phone: 700px;
-    --nav-height: 5rem;
-    --nav-mobile-height: 4rem;
-    --footer-height: 5rem;
-    --footer-mobile-height: 4rem;
-
-
-    /********** Fuentes para texto **********/
-
-    --font: 'Lato', sans-serif;
-
-
-    /********** Tamaños responsivos para texto: min(320px) max(1200px) **********/
-
-    --step--2: clamp(0.69rem, calc(0.66rem + 0.19vw), 0.80rem);
-    --step--1: clamp(0.83rem, calc(0.77rem + 0.30vw), 1.00rem);
-    --step-0: clamp(1.00rem, calc(0.91rem + 0.45vw), 1.25rem);
-    --step-1: clamp(1.20rem, calc(1.07rem + 0.66vw), 1.56rem);
-    --step-2: clamp(1.44rem, calc(1.25rem + 0.93vw), 1.95rem);
-    --step-3: clamp(1.73rem, calc(1.47rem + 1.30vw), 2.44rem);
-    --step-4: clamp(2.07rem, calc(1.72rem + 1.78vw), 3.05rem);
-    --step-5: clamp(2.49rem, calc(2.01rem + 2.41vw), 3.82rem);
-
+    .warning-span {
+        @apply text-span text-warning-altern-color text-end h-4;
+    }
 }
 
-
-/* Aquí se hace un reseteo del tamaño de caja para todo el contenido del front, así cada componente tendrá el tamaño especificado y no crecerá si se adiciona algún padding */
-html {
-    box-sizing: border-box;
-    font-family: var(--font);
+.translate1-enter {
+    transform: translateX(-100%);
 }
 
-*,
-*::after,
-::before {
-    box-sizing: inherit;
+.translate1-enter-active {
+    transform: translateX(0);
+    transition: all 600ms ease-in-out;
 }
 
-body {
-    margin: 0;
+.translate1-exit {
+    transform: translateX(0);
 }
 
-/* Reseteando magenes y estableciendo el font-size de todas las etiquetas */
-
-h1 {
-    margin: 0;
-    font-size: 2rem;
-    font-size: var(--step-4);
-    /* line-height: 2rem; */
+.translate1-exit-active {
+    transform: translateX(-100%);
+    transition: all 600ms ease-in-out;
 }
 
-h2 {
-    margin: 0;
-    font-size: 1.5rem;
-    font-size: var(--step-3);
-    /* line-height: 1.5rem; */
+.translate2-enter {
+    transform: translateX(100%);
 }
 
-h3 {
-    margin: 0;
-    font-size: 1.125rem;
-    font-size: var(--step-2);
-    /* line-height: 1.125rem; */
+.translate2-enter-active {
+    transform: translateX(0);
+    transition: all 600ms ease-in-out;
 }
 
-h4 {
-    margin: 0;
-    font-size: var(--step-1);
+.translate2-exit {
+    transform: translateX(0);
 }
 
-h5 {
-    margin: 0;
-    font-size: var(--step-0);
+.translate2-exit-active {
+    transform: translateX(100%);
+    transition: all 600ms ease-in-out;
 }
 
-h6 {
-    margin: 0;
-    font-size: var(--step--1);
-}
-
-span {
-    font-size: var(--step--1);
-}
-
-label {
-    font-size: var(--step-0);
-}
-
-p {
-    font-size: var(--step--1);
-}
-
-button {
-    font-size: var(--step-0);
-}
-input {
-    font-size: var(--step-0);
-}
-select {
-    font-size: var(--step-0);
-}
+.item-enter {
+    opacity: 0;
+  }
+  .item-enter-active {
+    opacity: 1;
+    transition: opacity 500ms ease;
+  }
+  .item-exit {
+    opacity: 1;
+  }
+  .item-exit-active {
+    opacity: 0;
+    transition: opacity 500ms ease;
+  }

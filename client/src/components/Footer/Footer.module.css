@@ -1,8 +1,0 @@
-.footerContainer {
-    /* position:absolute; */
-    /* bottom: 0; */
-
-    width: 100%;
-    height: var(--footer-height);
-    background-color: var(--second-color);
-}
